@@ -10,7 +10,7 @@
   <body>
     <h2>Загрузка файла</h2>
 
-<form method="post" enctype='multipart/form-data' action="page3.2.php">
+<form method="post" enctype='multipart/form-data' action="page3.1.php">
     Выберите файл:
     <input type='file' name='filename' size='10' /><br /><br />
     <input type='submit' value='Загрузить' />
@@ -21,7 +21,7 @@
 
 if ($_FILES && $_FILES['filename']['error']== UPLOAD_ERR_OK) {
 
-    $name = $_FILES['filename']['name'];
+    $name = htmlspecialchars($_FILES['filename']['name']);
     echo $name.'<br>';
     $name = lineTransform($name);
     echo $name;
